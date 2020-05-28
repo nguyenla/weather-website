@@ -9,7 +9,7 @@ weather_form.addEventListener("submit", (event) => {
     messageOne.textContent = "Loading weather for " + location
     messageTwo.textContent = ""
 
-    weather_url = "http://localhost:3000/weather?address=" + location
+    weather_url = "/weather?address=" + location
     console.log("Fetching ", weather_url)
     fetch(weather_url).then((response) => {
         response.json().then(( data ) => {
@@ -17,8 +17,8 @@ weather_form.addEventListener("submit", (event) => {
                 messageOne.textContent = data.error
             }
             else {
-                messageOne.textContent = data.address
-                messageTwo.textContent = data.temperature
+                messageOne.textContent = "Location: " + data.address
+                messageTwo.textContent = "Temperature: " + data.temperature
             }
         })
     })

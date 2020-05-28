@@ -57,7 +57,9 @@ app.get("/weather", (req, res) => {
             res.send({
                 address: req.query.address,
                 forecast: forecast_data,
-                temperature: 25
+                temperature: forecast_data.temperature,
+                feelslike: forecast_data.feelslike,
+                description: forecast_data.description,
             })
             console.log("Location: ", location)
             console.log("Forecast data: ", forecast_data)
@@ -92,7 +94,7 @@ app.get("*", (req, res) => {
     })
 })
 
-const port = 3000
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
+const PORT = process.env.PORT || 3000 // default to 3000 for local testing
+app.listen(PORT, () => {
+    console.log(`Example app listening at http://localhost:${PORT}`)
 })
