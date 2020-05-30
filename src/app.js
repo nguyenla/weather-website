@@ -60,6 +60,7 @@ app.get("/weather", (req, res) => {
                 temperature: forecast_data.temperature,
                 feelslike: forecast_data.feelslike,
                 description: forecast_data.description,
+                humidity: forecast_data.humidity
             })
             console.log("Location: ", location)
             console.log("Forecast data: ", forecast_data)

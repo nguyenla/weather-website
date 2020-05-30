@@ -13,10 +13,12 @@ const weather_forecast = (longitude, latitude, callback) => {
             callback("Error: " + body.error.info, undefined)
         }
         else {
+            console.log(body)
             callback(undefined, {
                 description: body.current.weather_descriptions,
                 temperature: body.current.temperature,
-                feelslike: body.current.feelslike
+                feelslike: body.current.feelslike,
+                humidity: body.current.humidity,
             })
         }
     })
